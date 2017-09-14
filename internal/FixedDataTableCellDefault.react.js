@@ -17,6 +17,7 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
  */
 
 var React = require('./React');
+var createReactClass = require('create-react-class');
 
 var cx = require('./cx');
 var joinClasses = require('./joinClasses');
@@ -46,9 +47,7 @@ var PropTypes = React.PropTypes;
  * );
  * ```
  */
-var FixedDataTableCellDefault = React.createClass({
-  displayName: 'FixedDataTableCellDefault',
-
+var FixedDataTableCellDefault = createReactClass({
   propTypes: {
 
     /**

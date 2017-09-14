@@ -17,6 +17,7 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 var FixedDataTableCellDefault = require('./FixedDataTableCellDefault.react');
 var FixedDataTableHelper = require('./FixedDataTableHelper');
 var React = require('./React');
+var createReactClass = require('create-react-class');
 var cx = require('./cx');
 var joinClasses = require('./joinClasses');
 
@@ -29,8 +30,7 @@ var DEFAULT_PROPS = {
   highlighted: false
 };
 
-var FixedDataTableCell = React.createClass({
-  displayName: 'FixedDataTableCell',
+var FixedDataTableCell = createReactClass({
 
   /**
    * PropTypes are disabled in this component, because having them on slows

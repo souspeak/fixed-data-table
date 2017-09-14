@@ -22,6 +22,7 @@
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var React = require('./React');
+var createReactClass = require('create-react-class');
 var PropTypes = React.PropTypes;
 
 var cx = require('./cx');
@@ -30,8 +31,7 @@ var shallowEqual = require('./shallowEqual');
 
 var CellDefault = require('./FixedDataTableCellDefault.react');
 
-var TransitionCell = React.createClass({
-  displayName: 'TransitionCell',
+var TransitionCell = createReactClass({
 
   propTypes: {
     label: PropTypes.string, // header, footer

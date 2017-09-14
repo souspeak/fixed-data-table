@@ -11,13 +11,14 @@
  */
 
 var React = require('React');
+var createReactClass = require('create-react-class');
 
 var {PropTypes} = React;
 
 /**
  * Component that defines the attributes of table column.
  */
-var FixedDataTableColumn = React.createClass({
+var FixedDataTableColumn = createReactClass({
   statics: {
     __TableColumn__: true
   },

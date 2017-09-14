@@ -15,6 +15,7 @@
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var React = require('./React');
+var createReactClass = require('create-react-class');
 var FixedDataTableCellGroup = require('./FixedDataTableCellGroup.react');
 
 var cx = require('./cx');
@@ -28,8 +29,7 @@ var PropTypes = React.PropTypes;
  * This component should not be used directly by developer. Instead,
  * only <FixedDataTable /> should use the component internally.
  */
-var FixedDataTableRowImpl = React.createClass({
-  displayName: 'FixedDataTableRowImpl',
+var FixedDataTableRowImpl = createReactClass({
 
   propTypes: {
 
@@ -196,8 +196,7 @@ var FixedDataTableRowImpl = React.createClass({
   }
 });
 
-var FixedDataTableRow = React.createClass({
-  displayName: 'FixedDataTableRow',
+var FixedDataTableRow = createReactClass({
 
   propTypes: {
 
