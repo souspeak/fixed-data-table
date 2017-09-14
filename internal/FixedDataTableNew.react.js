@@ -843,36 +843,34 @@ var FixedDataTable = createReactClass({
   },
 
   _onWheel: function _onWheel( /*number*/deltaX, /*number*/deltaY) {
-    if (this.isMounted()) {
-      if (!this._isScrolling) {
-        this._didScrollStart();
-      }
-      var x = this.state.scrollX;
-      if (Math.abs(deltaY) > Math.abs(deltaX) && this.props.overflowY !== 'hidden') {
-        var scrollState = this._scrollHelper.scrollBy(Math.round(deltaY));
-        var maxScrollY = Math.max(0, scrollState.contentHeight - this.state.bodyHeight);
-        this.setState({
-          firstRowIndex: scrollState.index,
-          firstRowOffset: scrollState.offset,
-          scrollY: scrollState.position,
-          scrollContentHeight: scrollState.contentHeight,
-          maxScrollY: maxScrollY
-        });
-      } else if (deltaX && this.props.overflowX !== 'hidden') {
-        x += deltaX;
-        x = x < 0 ? 0 : x;
-        x = x > this.state.maxScrollX ? this.state.maxScrollX : x;
-        this.setState({
-          scrollX: x
-        });
-      }
-
-      this._didScrollStop();
+    if (!this._isScrolling) {
+      this._didScrollStart();
     }
+    var x = this.state.scrollX;
+    if (Math.abs(deltaY) > Math.abs(deltaX) && this.props.overflowY !== 'hidden') {
+      var scrollState = this._scrollHelper.scrollBy(Math.round(deltaY));
+      var maxScrollY = Math.max(0, scrollState.contentHeight - this.state.bodyHeight);
+      this.setState({
+        firstRowIndex: scrollState.index,
+        firstRowOffset: scrollState.offset,
+        scrollY: scrollState.position,
+        scrollContentHeight: scrollState.contentHeight,
+        maxScrollY: maxScrollY
+      });
+    } else if (deltaX && this.props.overflowX !== 'hidden') {
+      x += deltaX;
+      x = x < 0 ? 0 : x;
+      x = x > this.state.maxScrollX ? this.state.maxScrollX : x;
+      this.setState({
+        scrollX: x
+      });
+    }
+
+    this._didScrollStop();
   },
 
   _onHorizontalScroll: function _onHorizontalScroll( /*number*/scrollPos) {
-    if (this.isMounted() && scrollPos !== this.state.scrollX) {
+    if (scrollPos !== this.state.scrollX) {
       if (!this._isScrolling) {
         this._didScrollStart();
       }
@@ -884,7 +882,7 @@ var FixedDataTable = createReactClass({
   },
 
   _onVerticalScroll: function _onVerticalScroll( /*number*/scrollPos) {
-    if (this.isMounted() && scrollPos !== this.state.scrollY) {
+    if (scrollPos !== this.state.scrollY) {
       if (!this._isScrolling) {
         this._didScrollStart();
       }
@@ -900,7 +898,7 @@ var FixedDataTable = createReactClass({
   },
 
   _didScrollStart: function _didScrollStart() {
-    if (this.isMounted() && !this._isScrolling) {
+    if (!this._isScrolling) {
       this._isScrolling = true;
       if (this.props.onScrollStart) {
         this.props.onScrollStart(this.state.scrollX, this.state.scrollY);
@@ -909,7 +907,7 @@ var FixedDataTable = createReactClass({
   },
 
   _didScrollStop: function _didScrollStop() {
-    if (this.isMounted() && this._isScrolling) {
+    if (this._isScrolling) {
       this._isScrolling = false;
       this.setState({ redraw: true });
       if (this.props.onScrollEnd) {
