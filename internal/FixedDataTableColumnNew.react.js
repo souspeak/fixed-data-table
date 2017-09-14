@@ -13,15 +13,13 @@
 'use strict';
 
 var React = require('./React');
-
-var PropTypes = React.PropTypes;
+var createReactClass = require('create-react-class');
+var PropTypes = require('prop-types');
 
 /**
  * Component that defines the attributes of table column.
  */
-var FixedDataTableColumn = React.createClass({
-  displayName: 'FixedDataTableColumn',
-
+var FixedDataTableColumn = createReactClass({
   statics: {
     __TableColumn__: true
   },
