@@ -14,6 +14,7 @@ var DOMMouseMoveTracker = require('DOMMouseMoveTracker');
 var Keys = require('Keys');
 var React = require('React');
 var ReactDOM = require('ReactDOM');
+var createReactClass = require('create-react-class');
 var ReactComponentWithPureRenderMixin = require('ReactComponentWithPureRenderMixin');
 var ReactWheelHandler = require('ReactWheelHandler');
 
@@ -36,7 +37,7 @@ var KEYBOARD_SCROLL_AMOUNT = 40;
 
 var _lastScrolledScrollbar = null;
 
-var Scrollbar = React.createClass({
+var Scrollbar = createReactClass({
   mixins: [ReactComponentWithPureRenderMixin],
 
   propTypes: {

@@ -19,16 +19,15 @@
 var DOMMouseMoveTracker = require('./DOMMouseMoveTracker');
 var Locale = require('./Locale');
 var React = require('./React');
+var createReactClass = require('create-react-class');
 var ReactComponentWithPureRenderMixin = require('./ReactComponentWithPureRenderMixin');
 
 var clamp = require('./clamp');
 var cx = require('./cx');
 
-var PropTypes = React.PropTypes;
+var PropTypes = require('prop-types');
 
-var FixedDataTableColumnResizeHandle = React.createClass({
-  displayName: 'FixedDataTableColumnResizeHandle',
-
+var FixedDataTableColumnResizeHandle = createReactClass({
   mixins: [ReactComponentWithPureRenderMixin],
 
   propTypes: {

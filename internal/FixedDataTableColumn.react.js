@@ -20,10 +20,9 @@
 'use strict';
 
 var React = require('./React');
+var createReactClass = require('create-react-class');
 
-var TransitionColumn = React.createClass({
-  displayName: 'TransitionColumn',
-
+var TransitionColumn = createReactClass({
   statics: {
     __TableColumn__: true
   },

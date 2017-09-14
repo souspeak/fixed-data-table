@@ -18,17 +18,17 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 
 var FixedDataTableHelper = require('./FixedDataTableHelper');
 var React = require('./React');
+var createReactClass = require('create-react-class');
 var FixedDataTableCell = require('./FixedDataTableCell.react');
 
 var cx = require('./cx');
 var translateDOMPositionXY = require('./translateDOMPositionXY');
 
-var PropTypes = React.PropTypes;
+var PropTypes = require('prop-types');
 
 var DIR_SIGN = FixedDataTableHelper.DIR_SIGN;
 
-var FixedDataTableCellGroupImpl = React.createClass({
-  displayName: 'FixedDataTableCellGroupImpl',
+var FixedDataTableCellGroupImpl = createReactClass({
 
   /**
    * PropTypes are disabled in this component, because having them on slows
@@ -129,8 +129,7 @@ var FixedDataTableCellGroupImpl = React.createClass({
   }
 });
 
-var FixedDataTableCellGroup = React.createClass({
-  displayName: 'FixedDataTableCellGroup',
+var FixedDataTableCellGroup = createReactClass({
 
   /**
    * PropTypes are disabled in this component, because having them on slows

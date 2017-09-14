@@ -16,6 +16,7 @@ var DOMMouseMoveTracker = require('./DOMMouseMoveTracker');
 var Keys = require('./Keys');
 var React = require('./React');
 var ReactDOM = require('./ReactDOM');
+var createReactClass = require('create-react-class');
 var ReactComponentWithPureRenderMixin = require('./ReactComponentWithPureRenderMixin');
 var ReactWheelHandler = require('./ReactWheelHandler');
 
@@ -24,7 +25,7 @@ var cx = require('./cx');
 var emptyFunction = require('./emptyFunction');
 var translateDOMPositionXY = require('./translateDOMPositionXY');
 
-var PropTypes = React.PropTypes;
+var PropTypes = require('prop-types');
 
 var UNSCROLLABLE_STATE = {
   position: 0,
@@ -38,9 +39,7 @@ var KEYBOARD_SCROLL_AMOUNT = 40;
 
 var _lastScrolledScrollbar = null;
 
-var Scrollbar = React.createClass({
-  displayName: 'Scrollbar',
-
+var Scrollbar = createReactClass({
   mixins: [ReactComponentWithPureRenderMixin],
 
   propTypes: {

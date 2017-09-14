@@ -1,9 +1,3 @@
-'use strict';
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
 /**
  * Copyright (c) 2015, Facebook, Inc.
  * All rights reserved.
@@ -16,12 +10,18 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
  * @typechecks
  */
 
-var React = require('./React');
+'use strict';
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+var React = require('./React');
+var createReactClass = require('create-react-class');
 var cx = require('./cx');
 var joinClasses = require('./joinClasses');
 
-var PropTypes = React.PropTypes;
+var PropTypes = require('prop-types');
 
 /**
  * Component that handles default cell layout and styling.
@@ -46,9 +46,7 @@ var PropTypes = React.PropTypes;
  * );
  * ```
  */
-var FixedDataTableCellDefault = React.createClass({
-  displayName: 'FixedDataTableCellDefault',
-
+var FixedDataTableCellDefault = createReactClass({
   propTypes: {
 
     /**
@@ -69,16 +67,17 @@ var FixedDataTableCellDefault = React.createClass({
   },
 
   render: function render() {
-    var divProps = _extends({}, this.props);
-    delete divProps.rowIndex;
-    var height = divProps.height;
-    var width = divProps.width;
-    var style = divProps.style;
-    var className = divProps.className;
-    var children = divProps.children;
-    var columnKey = divProps.columnKey;
+    var _props = this.props;
+    var height = _props.height;
+    var width = _props.width;
+    var style = _props.style;
+    var className = _props.className;
+    var children = _props.children;
+    var columnKey = _props.columnKey;
+    var // Unused but should not be passed through
+    rowIndex = _props.rowIndex;
 
-    var props = _objectWithoutProperties(divProps, ['height', 'width', 'style', 'className', 'children', 'columnKey']);
+    var props = _objectWithoutProperties(_props, ['height', 'width', 'style', 'className', 'children', 'columnKey', 'rowIndex']);
 
     var innerStyle = _extends({
       height: height,
@@ -111,3 +110,4 @@ var FixedDataTableCellDefault = React.createClass({
 });
 
 module.exports = FixedDataTableCellDefault;
+// Unused but should not be passed through
