@@ -97,9 +97,10 @@ var FixedDataTableBufferedRows = createReactClass({
 
   _updateBuffer() {
     if (this._rowBuffer) {
-      this.setState({
-        rowsToRender: this._rowBuffer.getRowsWithUpdatedBuffer(),
-      });
+      this.state = {
+        ...this.state,
+        rowsToRender: this._rowBuffer.getRowsWithUpdatedBuffer()
+      }
     }
   },
 
