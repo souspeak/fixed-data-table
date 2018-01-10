@@ -13,6 +13,7 @@
 var DOMMouseMoveTracker = require('DOMMouseMoveTracker');
 var Keys = require('Keys');
 var React = require('React');
+var createReactClass = require('create-react-class');
 var ReactDOM = require('ReactDOM');
 var createReactClass = require('create-react-class');
 var ReactComponentWithPureRenderMixin = require('ReactComponentWithPureRenderMixin');
